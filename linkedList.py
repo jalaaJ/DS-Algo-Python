@@ -10,4 +10,10 @@ class LinkedList:
         self.tail = new_node
         self.length = 1
         
+    def print_list(self):
+        temp = self.head
+        while temp is not None:
+            print(temp.value)
+            temp = temp.next
+        
         
