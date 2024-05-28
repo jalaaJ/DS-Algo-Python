@@ -22,6 +22,25 @@ class LinkedList:
             
         self.length += 1
         return True
+    
+    def pop(self):
+        if self.length == 0:
+            return None
+        elif self.length == 1:
+            temp = self.head
+            self.head = None
+            self.tail = None
+            return temp
+        else:
+            temp = self.head
+            prev = self.head
+            while temp.next:
+                prev = temp
+                temp = temp.next
+            self.tail = prev
+            self.tail.next = None
+            self.length -= 1
+            return temp
                 
     def print_list(self):
         temp = self.head
@@ -32,5 +51,5 @@ class LinkedList:
         
 my_linkedlist = LinkedList(5)
 my_linkedlist.append(4)
-my_linkedlist.append(3)
+my_linkedlist.pop()
 my_linkedlist.print_list()
