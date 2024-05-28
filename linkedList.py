@@ -30,7 +30,8 @@ class LinkedList:
             temp = self.head
             self.head = None
             self.tail = None
-            return temp
+            self.length -= 1
+            return temp.value
         else:
             temp = self.head
             prev = self.head
@@ -40,7 +41,7 @@ class LinkedList:
             self.tail = prev
             self.tail.next = None
             self.length -= 1
-            return temp
+            return temp.value
                 
     def print_list(self):
         temp = self.head
@@ -50,6 +51,5 @@ class LinkedList:
         
         
 my_linkedlist = LinkedList(5)
-my_linkedlist.append(4)
-my_linkedlist.pop()
-my_linkedlist.print_list()
+print(my_linkedlist.pop())
+print(my_linkedlist.pop())
