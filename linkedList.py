@@ -68,22 +68,27 @@ class LinkedList:
         node.next = None
         return node.value
     
-    def get(self, index):
-        if index < 0 or index >= self.length:
+    def is_index_not_valid(self, index):
+        if index < 0 and index >= self.length:
             return None
+    
+    def get(self, index):
+        self.is_index_not_valid(index)
         node = self.head
         for _ in range(index):
             node = node.next
         return node
             
     def set_value(self, index, value):
-        if index < 0 or index >= self.length:
-            return None
+        self.is_index_not_valid(index)
         node = self.get(index)
         if node:
             node.value = value
             return True
         return False
+      
+    def insert(self, index, value):
+        self.is_index_not_valid(index)
         
                 
     def print_list(self):
@@ -104,4 +109,5 @@ my_linkedlist.prepend(2)
 my_linkedlist.pop_first()
 my_linkedlist.set_value(0, 10)
 my_linkedlist.set_value(0, 100)
+my_linkedlist.set_value(0, 1000)
 my_linkedlist.print_list()
