@@ -52,7 +52,7 @@ class LinkedList:
                 new_node.next = self.head
                 self.head = new_node
             self.length += 1
-            return new_node.value
+            return True
                 
     def print_list(self):
         temp = self.head
