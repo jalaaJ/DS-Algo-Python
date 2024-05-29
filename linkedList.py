@@ -48,11 +48,10 @@ class LinkedList:
             if self.length == 0:
                 self.head = new_node
                 self.tail = new_node
-                self.length += 1
             else:
                 new_node.next = self.head
                 self.head = new_node
-                self.length += 1
+            self.length += 1
             return new_node.value
                 
     def print_list(self):
