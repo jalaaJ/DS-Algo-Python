@@ -112,6 +112,19 @@ class LinkedList:
         node_to_remove.next = None
         self.length -= 1
         return node_to_remove
+    
+    def reverse(self):
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+        after = temp.next
+        before = None
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after
+        
                 
     def print_list(self):
         temp = self.head
@@ -134,4 +147,6 @@ my_linkedlist.set_value(0, 1000)
 my_linkedlist.insert(1, 10)
 my_linkedlist.insert(1, 100)
 my_linkedlist.remove(1)
+my_linkedlist.reverse()
+my_linkedlist.reverse()
 my_linkedlist.print_list()
