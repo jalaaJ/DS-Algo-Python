@@ -11,6 +11,10 @@ class DoublyLinkedList:
         self.tail = new_node
         self.length = 1
         
+    def is_index_not_valid(self, index):
+        if index < 0 and index >= self.length:
+            return False
+        
     # We're returning a boolean value because we will use it in another method    
     def append(self, value):
         new_node = Node(value)
@@ -63,6 +67,18 @@ class DoublyLinkedList:
             to_delete_node.next = None
         self.length -= 1
         return to_delete_node
+    
+    def get(self, index):
+        self.is_index_not_valid(index)
+        if index < self.length/2:
+            node = self.head
+            for _ in range(index):
+                node = node.next
+        else:
+            node = self.tail
+            for _ in range(self.length - 1, index, -1):
+                node = node.prev
+        return node
         
     def print_list(self):
         temp = self.head
@@ -70,10 +86,10 @@ class DoublyLinkedList:
             print(temp.value)
             temp = temp.next
         
-my_d_linkedlist = DoublyLinkedList(5)
+my_d_linkedlist = DoublyLinkedList(0)
 my_d_linkedlist.append(1)
-my_d_linkedlist.append(10)
-my_d_linkedlist.pop()
-my_d_linkedlist.prepend(4)
-my_d_linkedlist.pop_first()
-my_d_linkedlist.print_list()
+my_d_linkedlist.append(2)
+my_d_linkedlist.append(3)
+print(my_d_linkedlist.get(1))
+print(my_d_linkedlist.get(2))
+
