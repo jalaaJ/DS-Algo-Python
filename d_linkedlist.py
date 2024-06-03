@@ -49,6 +49,20 @@ class DoublyLinkedList:
             self.head = new_node
         self.length += 1
         return True
+    
+    def pop_first(self):
+        if self.length == 0:
+            return None
+        elif self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            to_delete_node = self.head
+            self.head = self.head.next
+            self.head.prev = None
+            to_delete_node.next = None
+        self.length -= 1
+        return to_delete_node
         
     def print_list(self):
         temp = self.head
@@ -61,5 +75,5 @@ my_d_linkedlist.append(1)
 my_d_linkedlist.append(10)
 my_d_linkedlist.pop()
 my_d_linkedlist.prepend(4)
+my_d_linkedlist.pop_first()
 my_d_linkedlist.print_list()
-        
