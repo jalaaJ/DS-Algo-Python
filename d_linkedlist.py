@@ -51,13 +51,13 @@ class DoublyLinkedList:
         return True
     
     def pop_first(self):
+        to_delete_node = self.head
         if self.length == 0:
             return None
         elif self.length == 1:
             self.head = None
             self.tail = None
         else:
-            to_delete_node = self.head
             self.head = self.head.next
             self.head.prev = None
             to_delete_node.next = None
