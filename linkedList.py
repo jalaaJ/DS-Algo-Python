@@ -131,8 +131,7 @@ class LinkedList:
         while temp is not None:
             print(temp.value)
             temp = temp.next
-        
-        
+            
 my_linkedlist = LinkedList(5)
 my_linkedlist.prepend(4)
 my_linkedlist.prepend(3)
