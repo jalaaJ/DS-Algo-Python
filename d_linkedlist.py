@@ -48,7 +48,7 @@ class DoublyLinkedList:
             self.head.prev = new_node
             self.head = new_node
         self.length += 1
-        return new_node
+        return True
         
     def print_list(self):
         temp = self.head
