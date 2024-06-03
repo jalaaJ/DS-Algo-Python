@@ -87,6 +87,23 @@ class DoublyLinkedList:
             return True
         return False
         
+    def insert(self, index, value):
+        self.is_index_not_valid(index)
+        if index == 0:
+            self.prepend(value)
+        elif index == self.length:
+            self.append(value)
+        else:
+            new_node = Node(value)
+            node_before = self.get(index - 1)
+            node_after = node_before.next
+            node_before.next = new_node
+            new_node.prev = node_before
+            new_node.next = node_after
+            node_after.prev = new_node
+        self.length += 1
+        return True
+            
         
     def print_list(self):
         temp = self.head
@@ -98,6 +115,5 @@ my_d_linkedlist = DoublyLinkedList(0)
 my_d_linkedlist.append(1)
 my_d_linkedlist.append(2)
 my_d_linkedlist.append(3)
-print(my_d_linkedlist.get(1))
-print(my_d_linkedlist.get(2))
-
+my_d_linkedlist.insert(1, 5)
+my_d_linkedlist.print_list()
