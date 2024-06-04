@@ -18,6 +18,20 @@ class Stack:
             self.top = new_node
         self.height += 1
         
+    def pop(self):
+        node_to_remove = self.top
+        if node_to_remove is not None:
+            if self.height == 1:
+                self.top = None
+            else:
+                self.top = self.top.next
+                node_to_remove.next = None
+            self.height -= 1
+            return node_to_remove
+        else:
+            return None
+            
+        
     def print_stack(self):
         node = self.top
         while node:
@@ -26,4 +40,6 @@ class Stack:
         
 my_stack = Stack(5)
 my_stack.push(10)
+my_stack.push(15)
+my_stack.pop()
 my_stack.print_stack()
