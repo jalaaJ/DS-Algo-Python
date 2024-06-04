@@ -21,11 +21,8 @@ class Stack:
     def pop(self):
         node_to_remove = self.top
         if node_to_remove is not None:
-            if self.height == 1:
-                self.top = None
-            else:
-                self.top = self.top.next
-                node_to_remove.next = None
+            self.top = self.top.next
+            node_to_remove.next = None
             self.height -= 1
             return node_to_remove
         else:
