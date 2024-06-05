@@ -19,6 +19,16 @@ class Queue:
             self.last.next = new_node
             self.last = new_node
         self.length += 1
+        
+    def dequeue(self):
+        if self.length == 0:
+            return None
+        else:
+            node_to_remove = self.first
+            self.first = self.first.next
+            node_to_remove.next = None
+            self.length -= 1
+            return node_to_remove
     
     def print_queue(self):
         node = self.first
@@ -28,4 +38,6 @@ class Queue:
     
 my_queue = Queue(5)
 my_queue.enqueue(6)
+my_queue.enqueue(7)
+my_queue.dequeue()
 my_queue.print_queue()
