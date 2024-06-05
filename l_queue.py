@@ -23,12 +23,15 @@ class Queue:
     def dequeue(self):
         if self.length == 0:
             return None
+        elif self.length == 1:
+            self.first = None
+            self.last = None
         else:
             node_to_remove = self.first
             self.first = self.first.next
             node_to_remove.next = None
-            self.length -= 1
-            return node_to_remove
+        self.length -= 1
+        return node_to_remove
     
     def print_queue(self):
         node = self.first
