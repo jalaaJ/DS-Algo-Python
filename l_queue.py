@@ -10,3 +10,11 @@ class Queue:
         self.last = new_node
         self.length = 1
     
+    def print_queue(self):
+        node = self.first
+        while node is not None:
+            print(node.value)
+            node = node.next
+    
+my_queue = Queue(5)
+my_queue.print_queue()
