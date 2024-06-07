@@ -8,7 +8,14 @@ class HashTable:
             my_hash = (my_hash + ord(key) * 23) % len(self.data_map)
         return my_hash
     
+    def set_item(self, key, value):
+        index = self.__hash(key)
+        if self.data_map[index] == None:
+            self.data_map[index] = []
+        self.data_map[index].append([key, value])
+        
     def print_hashtable(self):
         for i, val in enumerate(self.data_map):
             print(i, ": ", val)
-            
+          
+
