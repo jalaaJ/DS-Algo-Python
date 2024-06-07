@@ -30,6 +30,13 @@ class HashTable:
                 for j in range(len(self.data_map[i])):
                     all_keys.append(self.data_map[i][j][0])
         return all_keys
+    
+    def item_in_common(self, list1, list2):
+        for item1 in list1:
+            for item2 in list2:
+                if item1 == item2:
+                    return True
+        return False
         
     def print_hashtable(self):
         for i, val in enumerate(self.data_map):
@@ -40,3 +47,6 @@ hash_table.set_item("bolts", 123)
 hash_table.set_item("washers", 321)
 print(hash_table.get_item("lumber"))
 hash_table.print_hashtable()
+list1 = [1, 2, 3]
+list2 = [4, 5, 3]
+print(hash_table.item_in_common(list1, list2))
