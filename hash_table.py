@@ -37,6 +37,15 @@ class HashTable:
                 if item1 == item2:
                     return True
         return False
+    
+    def item_in_common_optimal(self, list1, list2):
+        my_dict = {}
+        for item in list1:
+            my_dict[item] = True
+        for item in list2:
+            if item in my_dict:
+                return True
+        return False
         
     def print_hashtable(self):
         for i, val in enumerate(self.data_map):
@@ -50,3 +59,4 @@ hash_table.print_hashtable()
 list1 = [1, 2, 3]
 list2 = [4, 5, 3]
 print(hash_table.item_in_common(list1, list2))
+print(hash_table.item_in_common_optimal(list1, list2))
