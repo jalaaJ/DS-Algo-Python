@@ -28,6 +28,7 @@ class HashTable:
             print(i, ": ", val)
           
 hash_table = HashTable(7)
-hash_table.set_item("Jalaa", 123)
-hash_table.set_item("Jomana", 321)
-print(hash_table.get_item("Jomana"))
+hash_table.set_item("bolts", 123)
+hash_table.set_item("washers", 321)
+print(hash_table.get_item("lumber"))
+hash_table.print_hashtable()
