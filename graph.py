@@ -25,6 +25,15 @@ class Graph:
             return True
         return False
     
+    def remove_vertex(self, vertex):
+        if vertex in self.adjacency_list.keys():
+            for adjacent_vertex in self.adjacency_list[vertex]:
+                self.adjacency_list[adjacent_vertex].remove(vertex)
+            del self.adjacency_list[vertex]
+            return True
+        return False
+            
+    
     def vertices_exist(self, vertex1, vertex2):
         return vertex1 in self.adjacency_list.keys() and vertex2 in self.adjacency_list.keys()
 
