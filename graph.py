@@ -9,11 +9,16 @@ class Graph:
         return False
     
     def add_edge(self, vertex1, vertex2):
-        if vertex1 in self.adjacency_list.keys() and vertex2 in self.adjacency_list.keys():
+        if self.vertices_exist(vertex1, vertex2):
             self.adjacency_list[vertex1].append(vertex2)
             self.adjacency_list[vertex2].append(vertex1)
             return True
         return False
+    
+    
+    
+    def vertices_exist(self, vertex1, vertex2):
+        return vertex1 in self.adjacency_list.keys() and vertex2 in self.adjacency_list.keys()
 
     def print_graph(self):
         for vertex in self.adjacency_list:
