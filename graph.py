@@ -8,5 +8,9 @@ class Graph:
             return True
         return False
     
-    
+    def print_graph(self):
+        for vertex in self.adjacency_list:
+            print(vertex, ": ", self.adjacency_list[vertex])
+            
+
     
