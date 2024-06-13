@@ -16,4 +16,10 @@ class MaxHeap:
     def _swap_values(self, index1, index2):
         self.heap[index1], self.heap[index2] = self.heap[index2], self.heap[index1]
         
-    
+    def insert(self, value):
+        self.heap.append(value)
+        current = len(self.heap) - 1
+        while current > 0 and self.heap[current] > self.heap[self.heap[self._parent_index(current)]]:
+            self._swap_values(current, self._parent_index(current))
+            current = self._parent_index(current)
+        
