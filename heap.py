@@ -13,4 +13,7 @@ class MaxHeap:
     def _parent_index(self, index):
         return (index - 1) // 2
     
+    def _swap_values(self, index1, index2):
+        self.heap[index1], self.heap[index2] = self.heap[index2], self.heap[index1]
+        
     
