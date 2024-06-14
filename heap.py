@@ -22,6 +22,17 @@ class MaxHeap:
         while current > 0 and self.heap[current] > self.heap[self._parent_index(current)]:
             self._swap_values(current, self._parent_index(current))
             current = self._parent_index(current)
+            
+    def remove(self):
+        if len(self.heap) == 0:
+            return None
+        elif len(self.heap) == 1:
+            return self.heap.pop()
+        else:
+            max_value = self.heap[0]
+            self.heap[0] = self.heap.pop()
+            self._sink_down(0)
+            return max_value
 
 myHeap = MaxHeap()
 myHeap.insert(99)
@@ -34,3 +45,4 @@ print(myHeap.heap)
 myHeap.insert(100)
 
 print(myHeap.heap)
+
