@@ -41,6 +41,9 @@ class BinarySearchTree:
             else:
                 temp = temp.right
         return False
+    
+    def __r_contains(self, current_node, value):
+        
             
 my_bst = BinarySearchTree()
 my_bst.insert(5)
